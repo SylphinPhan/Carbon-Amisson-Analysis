@@ -52,7 +52,8 @@ Table 'countries'
 id: Unique identifier for each country.
 country_name: The name of the country.
 2. Project brief
-Q1
+
+Q1. Which products contribute the most to carbon emissions?
 ```
 SELECT product_name, AVG(carbon_footprint_pcf) AS total_emissions
 FROM product_emissions
@@ -69,7 +70,7 @@ LIMIT 5;
 |Wind Turbine G90 2 Megawats  |1251625  |
 |Land Cruiser Prado. FJ Cruiser. Dyna trucks. Toyoace.IMV def unit.  |191687  |
 
-Q2
+Q2. What are the industry groups of these products?
 ```
 SELECT p.product_name, i.industry_group, AVG(p.carbon_footprint_pcf) AS avg_emissions
 FROM product_emissions p
@@ -88,7 +89,7 @@ LIMIT 5;
 | Wind Turbine G90 2 Megawats                                        | Electrical Equipment and Machinery | 1251625 | 
 | Land Cruiser Prado. FJ Cruiser. Dyna trucks. Toyoace.IMV def unit. | Automobiles & Components           | 191687 | 
 
-Q3
+Q3. What are the industries with the highest contribution to carbon emissions?
 ```
 SELECT i.industry_group, AVG(p.carbon_footprint_pcf) AS total_emissions
 FROM product_emissions p
@@ -110,7 +111,7 @@ LIMIT 10;
 | Media                                            | 1534.4667       | 
 | Software & Services                              | 1368.9412       | 
 
-Q4
+Q4. What are the companies with the highest contribution to carbon emissions?
 ```
 SELECT c.company_name, avg(p.carbon_footprint_pcf) AS total_emissions
 FROM product_emissions p
@@ -132,7 +133,7 @@ LIMIT 10;
 | "Daikin Industries, Ltd."              | 17600.0000      | 
 | CJ Cheiljedang                         | 15802.8333      | 
 
-Q5
+Q5. What are the countries with the highest contribution to carbon emissions?
 ```
 SELECT co.country_name, SUM(p.carbon_footprint_pcf) AS total_emissions
 FROM product_emissions p
@@ -155,7 +156,7 @@ LIMIT 10;
 | Taiwan       | 62875           | 
 | India        | 24574           | 
 
-Q6
+Q6. What is the trend of carbon footprints (PCFs) over the years?
 ```
 SELECT year, SUM(carbon_footprint_pcf) AS total_emissions
 FROM product_emissions
@@ -171,7 +172,7 @@ ORDER BY year;
 | 2016 | 1640182         | 
 | 2017 | 340271          | 
 
-Q7
+Q7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
 
 ```
 SELECT p.year,
